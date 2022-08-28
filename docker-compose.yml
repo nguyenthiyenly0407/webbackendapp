@@ -1,0 +1,32 @@
+version: '3.8'
+
+services:
+    prod:
+        container_name: nestjs_api_prod
+        image: nestjs-api-prod:1.0.0
+        environment:
+            URL_MONGO_DB: ${URL_MONGO_DB}
+            SECRET_TOKEN: ${SECRET_TOKEN}
+            EXPIRESIN_TOKEN: ${EXPIRESIN_TOKEN}
+            FIREBASE_PROJECT_ID: ${FIREBASE_PROJECT_ID}
+            FIREBASE_PRIVATE_KEY: ${FIREBASE_PRIVATE_KEY}
+            FIREBASE_EMAIL_CLIENT: ${FIREBASE_EMAIL_CLIENT}
+            MAIL_HOST: ${MAIL_HOST}
+            MAIL_USER: ${MAIL_USER}
+            MAIL_PASSWORD: ${MAIL_PASSWORD}
+            MAIL_FROM: ${MAIL_FROM}
+            REDIS_HOST: ${REDIS_HOST}
+            REDIS_PORT: ${REDIS_PORT}
+            REDIS_PASSWORD: ${REDIS_PASSWORD}
+        build:
+            context: .
+            dockerfile: Dockerfile
+            args:
+                - NODE_ENV=production
+        command: npm run start:prod
+        ports:
+            - 5000:5000
+        volumes:
+            - .:/usr/src/app
+            - /usr/src/app/node_modules
+        restart: unless-stopped
