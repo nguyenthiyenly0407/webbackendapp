@@ -17,7 +17,7 @@ async function bootstrap() {
 
   admin.initializeApp({
     credential: admin.credential.cert(adminConfig),
-    storageBucket: 'app-chat-coding-club.appspot.com'
+    storageBucket: 'wecommunity-204bd.appspot.com'
   });
 
   app.enableCors();

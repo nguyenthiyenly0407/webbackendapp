@@ -1,5 +1,5 @@
 import { Module } from '@nestjs/common';
-import { ConfigModule,ConfigService } from '@nestjs/config';
+import { ConfigModule, ConfigService } from '@nestjs/config';
 import { MongooseModule } from '@nestjs/mongoose';
 import { ServeStaticModule } from '@nestjs/serve-static';
 import { join } from 'path';
@@ -39,3 +39,4 @@ import { EventSocketGateway } from './socket/socket.io';
   exports: [EventSocketGateway]
 })
 export class AppModule {}
+

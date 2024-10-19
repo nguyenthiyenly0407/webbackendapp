@@ -1,4 +1,4 @@
 export const jwtConstants = {
-    secret: 'codingclub',
-    expiresIn: '604800s' 
+    secret: 'community',
+    expiresIn: '3600000s' 
 };
